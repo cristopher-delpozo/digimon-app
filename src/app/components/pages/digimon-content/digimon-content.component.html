@@ -7,7 +7,7 @@
     <div class="grid-layout" *ngIf="digimonsLoaded && digimons">
         <div *ngFor="let digimon of digimons | search : query">
             <mat-card>
-                <mat-card-title>{{ digimon.name | titlecase }}</mat-card-title>
+                <mat-card-title>{{ digimon.id }}. {{ digimon.name | titlecase }}</mat-card-title>
                 <div class="id">{{ digimon.id }}</div>
                 <div class="background-image">
                     <img mat-card-image src="{{ digimon.img }}" alt="photo of {{ digimon.name }}" />

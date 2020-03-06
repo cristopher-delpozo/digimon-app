@@ -1,7 +1,7 @@
 <mat-toolbar>
     <img class="digimon-logo" src="https://www.pngjoy.com/pngl/138/2791408_digimon-web-of-friendship-book-hd-png-download.png" />
 
-    <div class="search-box" *ngIf="userCanSearch()">
+    <div class="search-box" *ngIf="userCanSearch">
         <input matInput class="search-input" type="text" [(ngModel)]="search" (ngModelChange)="searchEvent()" placeholder="Busca por id, nombre o nivel..." />
         <button mat-button class="close-button" *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="searchEvent('')">
             <mat-icon>close</mat-icon>

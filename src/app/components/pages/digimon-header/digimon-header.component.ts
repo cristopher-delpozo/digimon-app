@@ -3,6 +3,7 @@ import { Digimon } from 'src/app/shared/models/digimon.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/models/user.interface';
 
 @Component({
   selector: 'app-digimon-header',
@@ -14,6 +15,7 @@ export class DigimonHeaderComponent implements OnInit {
   @Output() searchChange = new EventEmitter();
   search: string;
   digimomList: Array<Digimon>;
+  userCanSearch : boolean;
 
   @Input() set digimons(digimons: Digimon[]) {
     if (digimons !== this.digimomList) {
@@ -24,6 +26,9 @@ export class DigimonHeaderComponent implements OnInit {
   constructor(public authSvc: AuthService) { }
 
   ngOnInit() {
+    this.authSvc.user$.subscribe(user => {
+      this.userCanSearch = user.canSearch;
+    })    
   }
 
   searchEvent(search): void {
@@ -36,17 +41,4 @@ export class DigimonHeaderComponent implements OnInit {
   onLogout(): void {
     this.authSvc.logout();
   }
-
-  userCanSearch(): Observable<boolean> {
-    return this.authSvc.userData$.pipe(
-      map(user => { 
-        if (!user) {
-          console.log(user);
-          return true;
-        }
-        return false;
-      })
-    );
-  }
-
 }

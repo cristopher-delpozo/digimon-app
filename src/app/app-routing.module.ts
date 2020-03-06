@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { LoginComponent } from './components/pages/auth/login/login.component';
 import { DigimonHomepageComponent } from './components/pages/digimon-homepage/digimon-homepage.component';
 import { AuthGuard } from './shared/guards/auth.guard';

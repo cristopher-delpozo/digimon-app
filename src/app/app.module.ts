@@ -18,13 +18,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from 'src/environments/environment';
-import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
 import { DigimonContentComponent } from './components/pages/digimon-content/digimon-content.component';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,    
-    ContainerAppComponent,
     LoginComponent,
     DigimonHomepageComponent,
     DigimonHeaderComponent,
@@ -43,7 +42,7 @@ import { DigimonContentComponent } from './components/pages/digimon-content/digi
     ReactiveFormsModule,
     FormsModule    
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
