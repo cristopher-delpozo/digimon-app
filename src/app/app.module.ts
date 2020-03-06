@@ -7,18 +7,41 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DigimonHomepageComponent } from './components/pages/digimon-homepage/digimon-homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
+import { DigimonHeaderComponent } from './components/pages/digimon-header/digimon-header.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/pages/auth/login/login.component';
+
+/* Firebase */
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+import { environment } from 'src/environments/environment';
+import { ContainerAppComponent } from './components/pages/container-app/container-app.component';
+import { DigimonContentComponent } from './components/pages/digimon-content/digimon-content.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DigimonHomepageComponent
+    AppComponent,    
+    ContainerAppComponent,
+    LoginComponent,
+    DigimonHomepageComponent,
+    DigimonHeaderComponent,
+    DigimonContentComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    FormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

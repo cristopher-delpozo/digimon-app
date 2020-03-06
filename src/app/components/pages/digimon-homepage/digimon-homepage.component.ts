@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DigimonService } from '../../digimons/digimon.service';
 import { Digimon } from 'src/app/shared/models/digimon.interface';
 
@@ -8,21 +8,24 @@ import { Digimon } from 'src/app/shared/models/digimon.interface';
   styleUrls: ['./digimon-homepage.component.scss']
 })
 export class DigimonHomepageComponent implements OnInit {
-  digimonsLoaded: boolean;
-  digimons: Digimon[]
+  public search: string;
+  public digimons: Array<Digimon>;
   
-  constructor(private digimonService: DigimonService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.digimonsLoaded = false;
-    this.getDigimons();
   }
 
-  getDigimons(): void {
-    this.digimonService.getDigimons().subscribe((data: Digimon[]) => {
-      this.digimons = data;
-      this.digimonsLoaded = true;
-    });
+  newDigimonSearch(search: string): void {
+    if (this.search !== search) {
+      this.search = search;
+    }
+  }
+
+  exportDigimons(digimons: Array<Digimon>): void {
+    if (this.digimons !== digimons) {
+      this.digimons = digimons;
+    }
   }
 
 }

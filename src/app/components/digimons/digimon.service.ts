@@ -20,6 +20,24 @@ export class DigimonService {
       .get<Digimon[]>(`${this.digimonAPI}`)
       .pipe(catchError(this._handleError));
   }
+  
+  getDigimonById(id): Observable<Digimon[]> {
+    return this.http
+      .get<Digimon[]>(`${this.digimonAPI}/id/${id}`)
+      .pipe(catchError(this._handleError));
+  }
+
+  getDigimonByName(name): Observable<Digimon[]> {
+    return this.http
+      .get<Digimon[]>(`${this.digimonAPI}/name/${name}`)
+      .pipe(catchError(this._handleError));
+  }
+
+  getDigimonByLevel(level): Observable<Digimon[]> {
+    return this.http
+      .get<Digimon[]>(`${this.digimonAPI}/level/${level}`)
+      .pipe(catchError(this._handleError));
+  }
 
   private _handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

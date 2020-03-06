@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  digimonURL: 'https://digimon-api.herokuapp.com/api/digimon'
+  digimonURL: 'https://digimon-api.herokuapp.com/api/digimon',
+  firebaseConfig : {
+    apiKey: "AIzaSyALZbXIJjxsrkokN2p0fM1HnPkXeMCaI1g",
+    authDomain: "digimon-app-270022.firebaseapp.com",
+    databaseURL: "https://digimon-app-270022.firebaseio.com",
+    projectId: "digimon-app-270022",
+    storageBucket: "digimon-app-270022.appspot.com",
+    messagingSenderId: "980463333339",
+    appId: "1:980463333339:web:4c3d5c3df576795b1d41fe",
+    measurementId: "G-LNCG8W3XYY"
+  }
 };
 
 /*
