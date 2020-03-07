@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../models/user.interface';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { map, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +36,5 @@ export class AuthService {
     this.afAuth.auth.signOut();
     this.route.navigate(['/login']);
   }
-  
+
 }

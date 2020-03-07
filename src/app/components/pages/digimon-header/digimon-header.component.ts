@@ -1,9 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Digimon } from 'src/app/shared/models/digimon.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/shared/models/user.interface';
 
 @Component({
   selector: 'app-digimon-header',
